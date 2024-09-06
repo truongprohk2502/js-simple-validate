@@ -21,3 +21,4 @@ export * from "./is-mac";
 export * from "./is-numeric";
 export * from "./is-octal";
 export * from "./is-rgb-color";
+export * from "./is-port";

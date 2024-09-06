@@ -12,6 +12,11 @@ interface Options {
  * @returns {boolean} Returns true if the string is decimal number, false otherwise.
  */
 const isDecimal = (input: any, options?: Options) => {
+  // Convert number to string
+  if (typeof input === "number") {
+    input = Number(input).toString();
+  }
+
   // Returns false input is not a string
   if (typeof input !== "string") return false;
 

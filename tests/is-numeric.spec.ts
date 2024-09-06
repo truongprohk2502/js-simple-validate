@@ -2,6 +2,8 @@ import { isNumeric } from "../src";
 
 describe("isNumeric", () => {
   it("should be a numeric", () => {
+    expect(isNumeric(123)).toBe(true);
+    expect(isNumeric(-123.4)).toBe(true);
     expect(isNumeric("123")).toBe(true);
     expect(isNumeric("-123.4")).toBe(true);
     expect(isNumeric("+123.400")).toBe(true);

@@ -2,6 +2,8 @@ import { isDecimal } from "../src";
 
 describe("isDecimal", () => {
   it("should be a decimal number", () => {
+    expect(isDecimal(123)).toBe(true);
+    expect(isDecimal(-123.4)).toBe(true);
     expect(isDecimal("123")).toBe(true);
     expect(isDecimal("-123.4")).toBe(true);
     expect(isDecimal("+123.400")).toBe(true);

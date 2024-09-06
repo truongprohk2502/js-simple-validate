@@ -105,6 +105,21 @@ console.log(isEthereumAddress("71C7656EC7ab88b098defB751B7401B5f6d8976F")); // f
 console.log(isEthereumAddress("0x12345")); // false
 ```
 
+### `isPort(input)`
+
+Returns a Boolean indicating whether `input` is port number or not.
+Port number must be between 0 and 65535
+
+```typescript
+import { isPort } from "js-simple-validate";
+
+console.log(isPort("80")); // true
+console.log(isPort("3000")); // true
+console.log(isPort("100000")); // false
+console.log(isPort("0080")); // false
+console.log(isPort("-3000")); // false
+```
+
 ### `isMAC(input[, options])`
 
 Returns a Boolean indicating whether `input` is MAC address or not.

@@ -17,6 +17,11 @@ const intLeadingZeroesRegex = /^[-+]?[0-9]+$/;
  * @returns {boolean} Returns true if the string is integer, false otherwise.
  */
 const isInt = (input: any, options?: Options) => {
+  // Convert number to string
+  if (typeof input === "number") {
+    input = Number(input).toString();
+  }
+
   // Returns false input is not a string
   if (typeof input !== "string") return false;
 
@@ -31,10 +36,10 @@ const isInt = (input: any, options?: Options) => {
   const num = +input;
 
   // Check min,max,gt,lt
-  if (options?.min && num < options.min) return false;
-  if (options?.max && num > options.max) return false;
-  if (options?.gt && num <= options.gt) return false;
-  if (options?.lt && num >= options.lt) return false;
+  if (options?.min !== undefined && num < options.min) return false;
+  if (options?.max !== undefined && num > options.max) return false;
+  if (options?.gt !== undefined && num <= options.gt) return false;
+  if (options?.lt !== undefined && num >= options.lt) return false;
 
   return true;
 };
