@@ -3,6 +3,12 @@ const hslCommaRegex =
 const hslSpaceRegex =
   /^hsla?\(((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?))(deg|grad|rad|turn)?(\s(\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%){2}\s?(\/\s((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%?)\s?)?\)$/i;
 
+/**
+ * Validates if the given string is HSL color or not.
+ *
+ * @param {any} input The string to validate.
+ * @returns {boolean} Returns true if the string is HSL color, false otherwise.
+ */
 const isHSL = (input: any) => {
   // Returns false input is not a string
   if (typeof input !== "string") return false;

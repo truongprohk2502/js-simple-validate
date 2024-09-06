@@ -251,6 +251,20 @@ console.log(isRgbColor("rgb(200%,200%,200%)")); // false
 console.log(isRgbColor("rgba(255,255,255,1.5)")); // false
 ```
 
+### `isLuhnNumber(input)`
+
+Returns a Boolean indicating whether `input` is passing Luhn algorithm check or not.
+Luhn algorithm is being used for checking the accuracy of MasterCard, American Express (AMEX), Visa number.
+
+```typescript
+import { isLuhnNumber } from "js-simple-validate";
+
+console.log(isLuhnNumber("555555-555555-4444")); // true
+console.log(isLuhnNumber("4111111111111111")); // true
+console.log(isLuhnNumber("12345678")); // false
+console.log(isLuhnNumber("dummy-text")); // false
+```
+
 ## License
 
 MIT
