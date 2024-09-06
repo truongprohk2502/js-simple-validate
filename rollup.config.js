@@ -1,7 +1,22 @@
-import typescript from "rollup-plugin-typescript2";
 import terser from "@rollup/plugin-terser";
 import { dts } from "rollup-plugin-dts";
-import del from "rollup-plugin-delete";
+import ts from "rollup-plugin-ts";
+import { createMinifier } from "dts-minify";
+import * as typescript from "typescript";
+
+function transformDtsPlugin() {
+  const minifier = createMinifier(typescript);
+  return {
+    name: "custom-transform",
+    transform(code) {
+      const transformCode = minifier.minify(code);
+      return {
+        code: transformCode,
+        map: true
+      }
+    },
+  };
+}
 
 const config = [
   {
@@ -16,9 +31,7 @@ const config = [
       },
     ],
     plugins: [
-      typescript({
-        useTsconfigDeclarationDir: true,
-      }),
+      ts(),
       terser({
         format: {
           comments: false,
@@ -27,22 +40,13 @@ const config = [
     ],
   },
   {
-    input: "dist/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "es" }],
-    plugins: [dts()],
-  },
-  {
-    input: "dist/index.js",
+    input: "dist/index.d.ts",
     output: [
       {
-        file: "dist/index.js",
-        format: "cjs",
-        exports: "named",
-        sourcemap: true,
-        strict: false,
+        file: "dist/index.d.ts",
       },
     ],
-    plugins: [del({ targets: "dist/types" })],
+    plugins: [transformDtsPlugin(), dts()],
   },
 ];
 
