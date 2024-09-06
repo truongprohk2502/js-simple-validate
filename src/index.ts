@@ -3,6 +3,7 @@ export * from "./is-ascii";
 export * from "./is-base-32";
 export * from "./is-base-64";
 export * from "./is-bitcoin-address";
+export * from "./is-ethereum-address";
 export * from "./is-data-uri";
 export * from "./is-date";
 export * from "./is-decimal";

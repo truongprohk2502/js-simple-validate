@@ -93,6 +93,18 @@ console.log(isBitcoinAddress("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa")); // true
 console.log(isBitcoinAddress("invalid BTC")); // false
 ```
 
+### `isEthereumAddress(input)`
+
+Returns a Boolean indicating whether `input` is Ethereum address or not.
+
+```typescript
+import { isEthereumAddress } from "js-simple-validate";
+
+console.log(isEthereumAddress("0x71C7656EC7ab88b098defB751B7401B5f6d8976F")); // true
+console.log(isEthereumAddress("71C7656EC7ab88b098defB751B7401B5f6d8976F")); // false
+console.log(isEthereumAddress("0x12345")); // false
+```
+
 ### `isDataURI(input)`
 
 Returns a Boolean indicating whether `input` is Data URI format or not.
