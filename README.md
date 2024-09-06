@@ -173,6 +173,23 @@ console.log(isDecimal("123", { force: true })); // false
 console.log(isDecimal("123.4", { digits: 3 })); // false
 ```
 
+### `isNumeric(input)`
+
+Returns a Boolean indicating whether `input` is numeric number or not.
+
+- `options.noSymbols`: is a `boolean` and defaults to `false`. If set to `true`, it will not allow any symbols except digits.
+
+```typescript
+import { isNumeric } from "js-simple-validate";
+
+console.log(isNumeric("123")); // true
+console.log(isNumeric("-123.5")); // true
+console.log(isNumeric("+123.5000")); // true
+console.log(isNumeric("--123.4")); // false
+console.log(isNumeric("123.4", { noSymbols: true })); // false
+console.log(isNumeric("-123", { noSymbols: true })); // false
+```
+
 ### `isFullWidth(input)`
 
 Returns a Boolean indicating whether `input` only has full-width characters or not.

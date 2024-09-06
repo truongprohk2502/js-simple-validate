@@ -17,5 +17,6 @@ export * from "./is-json-object";
 export * from "./is-jwt";
 export * from "./is-luhn-number";
 export * from "./is-mac";
+export * from "./is-numeric";
 export * from "./is-octal";
 export * from "./is-rgb-color";
