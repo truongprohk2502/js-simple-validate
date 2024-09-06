@@ -155,6 +155,31 @@ console.log(isDecimal("123", { force: true })); // false
 console.log(isDecimal("123.4", { digits: 3 })); // false
 ```
 
+### `isFullWidth(input)`
+
+Returns a Boolean indicating whether `input` only has full-width characters or not.
+
+```typescript
+import { isFullWidth } from "js-simple-validate";
+
+console.log(isFullWidth("Ａｌｉｃｅ　ｗａｓ　ｂｅｇｉｎｎｉｎｇ")); // true
+console.log(isFullWidth("Alice was beginning")); // false
+console.log(isFullWidth("日本語組版処理の要件")); // true
+```
+
+### `isHalfWidth(input)`
+
+Returns a Boolean indicating whether `input` only has half-width characters or not.
+
+```typescript
+import { isHalfWidth } from "js-simple-validate";
+
+console.log(isHalfWidth("Alice was beginning")); // true
+console.log(isHalfWidth("Ａｌｉｃｅ　ｗａｓ　ｂｅｇｉｎｎｉｎｇ")); // false
+console.log(isHalfWidth("ｻﾝﾌﾟﾙ")); // true
+console.log(isHalfWidth("日本語組版処理の要件")); // false
+```
+
 ### `isRgbColor(input)`
 
 Returns a Boolean indicating whether `input` is RGB (or RGBA) color or not.
