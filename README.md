@@ -180,6 +180,21 @@ console.log(isHalfWidth("ｻﾝﾌﾟﾙ")); // true
 console.log(isHalfWidth("日本語組版処理の要件")); // false
 ```
 
+### `isHash(input, algorithm)`
+
+Returns a Boolean indicating whether `input` is valid hash string based on hash algorithm or not.
+
+- `algorithm`: is a hash algorithm. Is one of `['crc32', 'crc32b', 'md4', 'md5', 'ripemd128', 'ripemd160', 'sha1', 'sha256', 'sha384', 'sha512', 'tiger128', 'tiger160', 'tiger192'`.
+
+```typescript
+import { isHash } from "js-simple-validate";
+
+console.log(isHash("6aaeb5af1a33e5c77e546224eb33de9", "md5")); // true
+console.log(isHash("6aaeb5af", "crc32")); // true
+console.log(isHash("ｻﾝﾌﾟﾙ", "crc32")); // false
+console.log(isHash("6aaeb5af1a33e5c7", "sha256")); // false
+```
+
 ### `isRgbColor(input)`
 
 Returns a Boolean indicating whether `input` is RGB (or RGBA) color or not.
