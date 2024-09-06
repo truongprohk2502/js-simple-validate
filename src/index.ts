@@ -12,5 +12,6 @@ export * from "./is-half-width";
 export * from "./is-hash";
 export * from "./is-hexadecimal";
 export * from "./is-hex-color";
+export * from "./is-hsl";
 export * from "./is-json-object";
 export * from "./is-rgb-color";

@@ -222,6 +222,20 @@ console.log(isHexColor("#FFF")); // true
 console.log(isHexColor("#VCLVCL")); // false
 ```
 
+### `isHSL(input)`
+
+Returns a Boolean indicating whether `input` is HSL color or not.
+
+```typescript
+import { isHSL } from "js-simple-validate";
+
+console.log(isHSL("hsl(120,100%,50%)")); // true
+console.log(isHSL("hsl(120deg 100% 50%)")); // true
+console.log(isHSL("hsla(-0.5e2rad -100% -2.5%)")); // true
+console.log(isHSL("hsl(120,100,50)")); // false
+console.log(isHSL("hsl(120% 100% 50%)")); // false
+```
+
 ### `isRgbColor(input)`
 
 Returns a Boolean indicating whether `input` is RGB (or RGBA) color or not.
