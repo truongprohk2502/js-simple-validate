@@ -4,12 +4,12 @@ interface Options {
 }
 
 /**
- * Validates if the given string decimal or not.
+ * Validates if the given string is decimal or not.
  *
  * @param {any} input The string to validate.
  * @param {any} options.digits The digits of decimal.
  * @param {any} options.force Check exactly a decimal with dot symbol and digits.
- * @returns {boolean} Returns true if the string decimal number, false otherwise.
+ * @returns {boolean} Returns true if the string is decimal number, false otherwise.
  */
 const isDecimal = (input: any, options?: Options) => {
   // Returns false input is not a string

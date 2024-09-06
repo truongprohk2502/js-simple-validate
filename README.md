@@ -138,7 +138,7 @@ console.log(isDataURI("text/plain,SGVsbG8sIFdvcmxkIQ==")); // false
 console.log(isDataURI("data:text/plain;base64")); // false
 ```
 
-### `isDate(input)`
+### `isDate(input[, options])`
 
 Returns a Boolean indicating whether `input` is Date string or not.
 
@@ -154,7 +154,7 @@ console.log(isDate("25.12.2024", { format: "DD.MM.YYYY", strictMode: true })); /
 console.log(isDate("25.12.2024", { format: "DD-MM-YYYY", strictMode: true })); // false
 ```
 
-### `isDecimal(input)`
+### `isDecimal(input[, options])`
 
 Returns a Boolean indicating whether `input` is decimal number or not.
 
@@ -173,7 +173,7 @@ console.log(isDecimal("123", { force: true })); // false
 console.log(isDecimal("123.4", { digits: 3 })); // false
 ```
 
-### `isNumeric(input)`
+### `isNumeric(input[, options])`
 
 Returns a Boolean indicating whether `input` is numeric number or not.
 
@@ -188,6 +188,29 @@ console.log(isNumeric("+123.5000")); // true
 console.log(isNumeric("--123.4")); // false
 console.log(isNumeric("123.4", { noSymbols: true })); // false
 console.log(isNumeric("-123", { noSymbols: true })); // false
+```
+
+### `isInt(input[, options])`
+
+Returns a Boolean indicating whether `input` is integer number or not.
+
+- `options.leadingZeros`: is a `boolean` and defaults to `false`. If set to `true`, it will allow leading zeros in integer.
+- `options.min`: is a `number`. Is the minimum value of integer.
+- `options.max`: is a `number`. Is the maximum value of integer.
+- `options.gt`: is a `number`. The integer must be greater than this value.
+- `options.lt`: is a `number`. The integer must be less than this value.
+
+```typescript
+import { isInt } from "js-simple-validate";
+
+console.log(isInt("123")); // true
+console.log(isInt("123.5")); // false
+console.log(isInt("0012")); // false
+console.log(isInt("0012", { leadingZeros: true })); // true
+console.log(isInt("3", { min: 1, max: 3 })); // true
+console.log(isInt("5", { min: 1, max: 3 })); // false
+console.log(isInt("2", { gt: 1, lt: 3 })); // true
+console.log(isInt("3", { gt: 1, lt: 3 })); // false
 ```
 
 ### `isFullWidth(input)`

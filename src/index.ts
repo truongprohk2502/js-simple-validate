@@ -13,6 +13,7 @@ export * from "./is-hash";
 export * from "./is-hexadecimal";
 export * from "./is-hex-color";
 export * from "./is-hsl";
+export * from "./is-int";
 export * from "./is-json-object";
 export * from "./is-jwt";
 export * from "./is-luhn-number";
