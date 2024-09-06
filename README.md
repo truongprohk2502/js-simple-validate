@@ -120,6 +120,19 @@ console.log(isPort("0080")); // false
 console.log(isPort("-3000")); // false
 ```
 
+### `isPostalCode(input[, locale])`
+
+Returns a Boolean indicating whether `input` is postal code or not.
+
+- `locale`: is a `Locale` of postal code. If not set, it will check all locales until match the `input` string.
+
+```typescript
+import { isPostalCode } from "js-simple-validate";
+
+console.log(isPostalCode("94812-4444", "US")); // true
+console.log(isPostalCode("94812-444", "US")); // false
+```
+
 ### `isMAC(input[, options])`
 
 Returns a Boolean indicating whether `input` is MAC address or not.
