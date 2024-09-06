@@ -213,6 +213,19 @@ console.log(isHash("ｻﾝﾌﾟﾙ", "crc32")); // false
 console.log(isHash("6aaeb5af1a33e5c7", "sha256")); // false
 ```
 
+### `isOctal(input, algorithm)`
+
+Returns a Boolean indicating whether `input` is octal number or not.
+
+```typescript
+import { isOctal } from "js-simple-validate";
+
+console.log(isOctal("01234567")); // true
+console.log(isOctal("0o1234567")); // true
+console.log(isOctal("AB1010")); // false
+console.log(isOctal("0x01234567")); // false
+```
+
 ### `isHexadecimal(input, algorithm)`
 
 Returns a Boolean indicating whether `input` is hexadecimal or not.
