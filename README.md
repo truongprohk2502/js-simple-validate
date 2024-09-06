@@ -151,6 +151,22 @@ console.log(isMAC("A1:B2C3.D4-E5F6")); // false
 console.log(isMAC("GG:XX:YY:ZZ:4D:5E")); // false
 ```
 
+### `isSemVer(input)`
+
+Returns a Boolean indicating whether `input` is Semantic Version or not.
+
+```typescript
+import { isSemVer } from "js-simple-validate";
+
+console.log(isSemVer("1.0.0")); // true
+console.log(isSemVer("1.2.3-alpha")); // true
+console.log(isSemVer("2.0.0-beta.1")); // true
+console.log(isSemVer("2.1.0+build.123")); // true
+console.log(isSemVer("1")); // false
+console.log(isSemVer("1.01.1")); // false
+console.log(isSemVer("alpha+beta")); // false
+```
+
 ### `isDataURI(input)`
 
 Returns a Boolean indicating whether `input` is Data URI format or not.
