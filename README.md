@@ -93,6 +93,21 @@ console.log(isBitcoinAddress("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa")); // true
 console.log(isBitcoinAddress("invalid BTC")); // false
 ```
 
+### `isDataURI(input)`
+
+Returns a Boolean indicating whether `input` is Data URI format or not.
+
+```typescript
+import { isDataURI } from "js-simple-validate";
+
+console.log(isDataURI("data:text/plain;base64,SGVsbG8sIFdvcmxkIQ==")); // true
+console.log(isDataURI("data:text/plain,SGVsbG8sIFdvcmxkIQ==")); // true
+console.log(isDataURI("data:image/gif;base64,R0lGOAAAA,AACkQBADs")); // true
+console.log(isDataURI("data::text/plain,SGVsbG8sIFdvcmxkIQ==")); // false
+console.log(isDataURI("text/plain,SGVsbG8sIFdvcmxkIQ==")); // false
+console.log(isDataURI("data:text/plain;base64")); // false
+```
+
 ### `isDate(input)`
 
 Returns a Boolean indicating whether `input` is Date string or not.
