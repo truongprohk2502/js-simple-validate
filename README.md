@@ -209,6 +209,19 @@ console.log(isHexadecimal("XYZ")); // false
 console.log(isHexadecimal("0bABC123")); // false
 ```
 
+### `isHexColor(input)`
+
+Returns a Boolean indicating whether `input` is HEX color or not.
+
+```typescript
+import { isHexColor } from "js-simple-validate";
+
+console.log(isHexColor("FFAABB00")); // true
+console.log(isHexColor("FFAA00")); // true
+console.log(isHexColor("#FFF")); // true
+console.log(isHexColor("#VCLVCL")); // false
+```
+
 ### `isRgbColor(input)`
 
 Returns a Boolean indicating whether `input` is RGB (or RGBA) color or not.
