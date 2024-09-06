@@ -61,10 +61,10 @@ console.log(isJsonObject("[1,2,3]")); // false
 Returns a Boolean indicating whether `input` is Base32 string or not.
 
 ```typescript
-import { isBase64 } from "js-simple-validate";
+import { isBase32 } from "js-simple-validate";
 
-console.log(isBase64("JBSWY3DPEBLW64TMMQQQ====")); // true
-console.log(isBase64("invalid base32")); // false
+console.log(isBase32("JBSWY3DPEBLW64TMMQQQ====")); // true
+console.log(isBase32("invalid base32")); // false
 ```
 
 ### `isBase64(input[, options])`
@@ -103,6 +103,24 @@ import { isEthereumAddress } from "js-simple-validate";
 console.log(isEthereumAddress("0x71C7656EC7ab88b098defB751B7401B5f6d8976F")); // true
 console.log(isEthereumAddress("71C7656EC7ab88b098defB751B7401B5f6d8976F")); // false
 console.log(isEthereumAddress("0x12345")); // false
+```
+
+### `isMAC(input[, options])`
+
+Returns a Boolean indicating whether `input` is MAC address or not.
+
+- `options.noSeparators`: is a `boolean` and defaults to `false`. If set to `true`, it will allow MAC addresses without separators.
+
+```typescript
+import { isMAC } from "js-simple-validate";
+
+console.log(isMAC("00:1A:2B:3C:4D:5E")); // true
+console.log(isMAC("A1-B2-C3-D4-E5-F6")); // true
+console.log(isMAC("001A.2B3C.4D5E")); // true
+console.log(isMAC("001A2B3C4D5E", { noSeparators: true })); // true
+console.log(isMAC("001A2B3C4D5E")); // false
+console.log(isMAC("A1:B2C3.D4-E5F6")); // false
+console.log(isMAC("GG:XX:YY:ZZ:4D:5E")); // false
 ```
 
 ### `isDataURI(input)`

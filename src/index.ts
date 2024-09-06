@@ -15,4 +15,5 @@ export * from "./is-hex-color";
 export * from "./is-hsl";
 export * from "./is-json-object";
 export * from "./is-luhn-number";
+export * from "./is-mac";
 export * from "./is-rgb-color";
