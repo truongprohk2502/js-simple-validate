@@ -283,6 +283,18 @@ console.log(isLuhnNumber("12345678")); // false
 console.log(isLuhnNumber("dummy-text")); // false
 ```
 
+### `isJWT(input)`
+
+Returns a Boolean indicating whether `input` is JWT token or not.
+
+```typescript
+import { isJWT } from "js-simple-validate";
+
+console.log(isJWT("5eyJhbGciOi9.eyJzdWIiOiWF0TE2MjM5MDIyfQ.wpMeJf36POk6yJ5c")); // true
+console.log(isJWT("anh.yêu.em")); // false
+console.log(isJWT("abc.def.ghy.jwt")); // false
+```
+
 ## License
 
 MIT
