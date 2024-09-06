@@ -10,5 +10,6 @@ export * from "./is-decimal";
 export * from "./is-full-width";
 export * from "./is-half-width";
 export * from "./is-hash";
+export * from "./is-hexadecimal";
 export * from "./is-json-object";
 export * from "./is-rgb-color";

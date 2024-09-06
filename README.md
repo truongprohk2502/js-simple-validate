@@ -195,6 +195,20 @@ console.log(isHash("ｻﾝﾌﾟﾙ", "crc32")); // false
 console.log(isHash("6aaeb5af1a33e5c7", "sha256")); // false
 ```
 
+### `isHexadecimal(input, algorithm)`
+
+Returns a Boolean indicating whether `input` is hexadecimal or not.
+
+```typescript
+import { isHexadecimal } from "js-simple-validate";
+
+console.log(isHexadecimal("AB0C5342F")); // true
+console.log(isHexadecimal("0xAB0C5342F")); // true
+console.log(isHexadecimal("0hAB0C5342F")); // true
+console.log(isHexadecimal("XYZ")); // false
+console.log(isHexadecimal("0bABC123")); // false
+```
+
 ### `isRgbColor(input)`
 
 Returns a Boolean indicating whether `input` is RGB (or RGBA) color or not.
