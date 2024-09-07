@@ -22,6 +22,7 @@ export * from "./is-luhn-number";
 export * from "./is-lat-long";
 export * from "./is-mac";
 export * from "./is-mobile-phone";
+export * from "./is-mongo-id";
 export * from "./is-numeric";
 export * from "./is-octal";
 export * from "./is-rgb-color";

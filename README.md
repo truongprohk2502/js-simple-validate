@@ -461,6 +461,18 @@ console.log(isMobilePhone("(555) 555-1234", "en-US")); // true
 console.log(isMobilePhone("1234-555-1234", ["vi-VN", "en-US"])); // false
 ```
 
+### `isMongoId(input, locale)`
+
+Returns a Boolean indicating whether `input` is mongo id or not.
+
+```typescript
+import { isMongoId } from "js-simple-validate";
+
+console.log(isMongoId("6592008029c8c3e4dc76256c")); // true
+console.log(isMongoId("0x6592008029c8c3e4dc76256c")); // false
+console.log(isMongoId("65920")); // false
+```
+
 ## License
 
 MIT
