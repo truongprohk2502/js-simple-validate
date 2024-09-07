@@ -392,6 +392,22 @@ console.log(isJWT("anh.yêu.em")); // false
 console.log(isJWT("abc.def.ghy.jwt")); // false
 ```
 
+### `isIP(input[, version)`
+
+Returns a Boolean indicating whether `input` is IP address or not.
+
+- `version`: specify IP version. Is one of `['IPv4', 'IPv6']`. If not set, it will check both v4 and v6 format.
+
+```typescript
+import { isIP } from "js-simple-validate";
+
+console.log(isIP("192.168.1.12")); // true
+console.log(isIP("192.168.1.12", "IPv6")); // false
+console.log(isIP("111:222:333:444:555:666:777:888")); // true
+console.log(isIP("12:23::", "IPv6")); // true
+console.log(isIP("1:2:3:4:5:6:192.168.1.12")); // true
+```
+
 ## License
 
 MIT
