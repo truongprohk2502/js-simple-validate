@@ -6,6 +6,7 @@ export * from "./is-bitcoin-address";
 export * from "./is-ethereum-address";
 export * from "./is-data-uri";
 export * from "./is-date";
+export * from "./is-ean";
 export * from "./is-time";
 export * from "./is-decimal";
 export * from "./is-full-width";

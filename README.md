@@ -516,7 +516,8 @@ console.log(isUUID("0929:f3ea:4df4:86b0:dedf")); // false
 
 ### `isIMEI(input[, options])`
 
-Returns a Boolean indicating whether `input` is IMEI number or not.
+Returns a Boolean indicating whether `input` is `IMEI` number or not.
+The IMEI (International Mobile Equipment Identity) number is a unique 15-digit serial number for identifying a device.
 
 - `options.allowHyphens`: is `boolean`, defaults to `false`. If set to `true`, it will check IMEI number that contains hyphens.
 
@@ -526,6 +527,20 @@ import { isIMEI } from "js-simple-validate";
 console.log(isIMEI("333909858444672")); // true
 console.log(isIMEI("45-961095-155032-8", { allowHyphens: true })); // true
 console.log(isIMEI("012345678912345")); // false
+```
+
+### `isEAN(input)`
+
+Returns a Boolean indicating whether `input` is valid `EAN` number or not.
+The International Article Number (also known as European Article Number or EAN) is a standard describing a barcode symbology and numbering system used in global trade to identify a specific retail product type, in a specific packaging configuration, from a specific manufacturer.
+There are most common EAN standard: EAN-8, EAN-13 and EAN/UCC-14.
+
+```typescript
+import { isEAN } from "js-simple-validate";
+
+console.log(isEAN("50123452")); // true
+console.log(isEAN("5012345678900")); // true
+console.log(isEAN("0123456789")); // false
 ```
 
 ## License
