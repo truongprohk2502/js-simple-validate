@@ -198,6 +198,23 @@ console.log(isDate("25.12.2024", { format: "DD.MM.YYYY", strictMode: true })); /
 console.log(isDate("25.12.2024", { format: "DD-MM-YYYY", strictMode: true })); // false
 ```
 
+### `isTime(input[, options])`
+
+Returns a Boolean indicating whether `input` is Time string or not.
+
+- `options.hourFormat`: is the format of hour, one of `['12', '24']`. If not set, it will check both hour `12` and `24` formats.
+- `options.withSeconds`: is a `boolean` and defaults to `false`. If set to `true`, it will check exactly time contains seconds.
+
+```typescript
+import { isTime } from "js-simple-validate";
+
+console.log(isTime("23:12:30")); // true
+console.log(isTime("00:12", { hourFormat: "12" })); // true
+console.log(isTime("23:12", { hourFormat: "12" })); // false
+console.log(isTime("23:12:30", { withSeconds: true })); // true
+console.log(isTime("23:12", { withSeconds: true })); // false
+```
+
 ### `isDecimal(input[, options])`
 
 Returns a Boolean indicating whether `input` is decimal number or not.
@@ -471,6 +488,18 @@ import { isMongoId } from "js-simple-validate";
 console.log(isMongoId("6592008029c8c3e4dc76256c")); // true
 console.log(isMongoId("0x6592008029c8c3e4dc76256c")); // false
 console.log(isMongoId("65920")); // false
+```
+
+### `isMimeType(input)`
+
+Returns a Boolean indicating whether `input` is mime type or not.
+
+```typescript
+import { isMimeType } from "js-simple-validate";
+
+console.log(isMimeType("image/jpeg")); // true
+console.log(isMimeType("text/plain; charset=UTF-8")); // true
+console.log(isMimeType("multipart/form-data; boundary=aBoundaryString")); // true
 ```
 
 ## License
