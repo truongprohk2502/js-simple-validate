@@ -424,6 +424,28 @@ console.log(isIPRange("192.168.1.12/-20")); // false
 console.log(isIPRange("12:23::/200", "IPv6")); // false
 ```
 
+### `isLatLong(input[, options])`
+
+Returns a Boolean indicating whether `input` is LatLong value or not.
+LatLong contains latitude and longitude separated by comma.
+There are 2 formats: `12.123456,175.234125` and `12° 50' 57.4548'' N,24° 26' 0.9384'' E`
+
+- `options.checkDMS`: is `boolean`, defaults to `false`. If set to `true`, it will check by DMS format. If not set, it will check for both formats.
+- `options.dmsUnits`: is `object`, defaults to `{ degree: "°", minute: "'", second: "''" }`. Is the unit of DMS.
+
+```typescript
+import { isLatLong } from "js-simple-validate";
+
+console.log(isLatLong("12.849293,24.433594")); // true
+console.log(isLatLong("12.849293,24.433594", { checkDMS: true })); // false
+console.log(isLatLong("12° 50' 57.4548'' N,24° 26' 0.9384'' E")); // true
+console.log(
+  isLatLong("12deg 50min 57.4548sec N, 24deg 26min 0.9384sec E", {
+    dmsUnits: { degree: "deg", minute: "min", second: "sec" },
+  })
+); // true
+```
+
 ## License
 
 MIT

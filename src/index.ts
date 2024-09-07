@@ -19,6 +19,7 @@ export * from "./is-ip-range";
 export * from "./is-json-object";
 export * from "./is-jwt";
 export * from "./is-luhn-number";
+export * from "./is-lat-long";
 export * from "./is-mac";
 export * from "./is-numeric";
 export * from "./is-octal";
