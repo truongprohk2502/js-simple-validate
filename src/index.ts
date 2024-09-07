@@ -30,6 +30,7 @@ export * from "./is-mime-type";
 export * from "./is-numeric";
 export * from "./is-octal";
 export * from "./is-uuid";
+export * from "./is-ulid";
 export * from "./is-rgb-color";
 export * from "./is-port";
 export * from "./is-postal-code";

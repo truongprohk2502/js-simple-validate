@@ -526,6 +526,18 @@ console.log(isUUID("3522ac6c:aadd:4165:8e10:d384faa5e076")); // false
 console.log(isUUID("0929:f3ea:4df4:86b0:dedf")); // false
 ```
 
+### `isULID(input)`
+
+Returns a Boolean indicating whether `input` is ULID string or not.
+ULID (Universally Unique Lexicographically Sortable Identifier) is the alternative of UUID. It can be sorted and cannot be duplicated.
+
+```typescript
+import { isULID } from "js-simple-validate";
+
+console.log(isULID("01AN4Z07BY79KA1307SR9X4MV3")); // true
+console.log(isULID("3522ac6c-aadd-4165-8e10-d384faa5e076")); // false
+```
+
 ### `isIMEI(input[, options])`
 
 Returns a Boolean indicating whether `input` is `IMEI` number or not.
