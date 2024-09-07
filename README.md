@@ -514,6 +514,20 @@ console.log(isUUID("3522ac6c:aadd:4165:8e10:d384faa5e076")); // false
 console.log(isUUID("0929:f3ea:4df4:86b0:dedf")); // false
 ```
 
+### `isIMEI(input[, options])`
+
+Returns a Boolean indicating whether `input` is IMEI number or not.
+
+- `options.allowHyphens`: is `boolean`, defaults to `false`. If set to `true`, it will check IMEI number that contains hyphens.
+
+```typescript
+import { isIMEI } from "js-simple-validate";
+
+console.log(isIMEI("333909858444672")); // true
+console.log(isIMEI("45-961095-155032-8", { allowHyphens: true })); // true
+console.log(isIMEI("012345678912345")); // false
+```
+
 ## License
 
 MIT

@@ -16,6 +16,7 @@ export * from "./is-hex-color";
 export * from "./is-hsl";
 export * from "./is-int";
 export * from "./is-ip";
+export * from "./is-imei";
 export * from "./is-ip-range";
 export * from "./is-json-object";
 export * from "./is-jwt";
