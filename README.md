@@ -299,6 +299,18 @@ console.log(isHalfWidth("ｻﾝﾌﾟﾙ")); // true
 console.log(isHalfWidth("日本語組版処理の要件")); // false
 ```
 
+### `isSurrogatePair(input)`
+
+Returns a Boolean indicating whether `input` only has surrogate pair characters or not.
+Surrogate pair is represented by 2 characters of UTF-16
+
+```typescript
+import { isSurrogatePair } from "js-simple-validate";
+
+console.log(isSurrogatePair("😁🍕")); // true
+console.log(isSurrogatePair("123")); // false
+```
+
 ### `isHash(input, algorithm)`
 
 Returns a Boolean indicating whether `input` is valid hash string based on hash algorithm or not.
