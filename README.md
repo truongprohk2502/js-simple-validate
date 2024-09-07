@@ -446,6 +446,21 @@ console.log(
 ); // true
 ```
 
+### `isMobilePhone(input, locale)`
+
+Returns a Boolean indicating whether `input` is mobile phone number or not.
+
+- `options.locale`: is `Locale` or array of `Locale`. Is one of `['en-US', 'vi-VN', ...]`. All supported locales are extracting at `MobilePhoneLocale` type.
+
+```typescript
+import { isMobilePhone } from "js-simple-validate";
+
+console.log(isMobilePhone("0789550792", "vi-VN")); // true
+console.log(isMobilePhone("+84789550792", "vi-VN")); // true
+console.log(isMobilePhone("(555) 555-1234", "en-US")); // true
+console.log(isMobilePhone("1234-555-1234", ["vi-VN", "en-US"])); // false
+```
+
 ## License
 
 MIT
