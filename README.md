@@ -502,6 +502,18 @@ console.log(isMimeType("text/plain; charset=UTF-8")); // true
 console.log(isMimeType("multipart/form-data; boundary=aBoundaryString")); // true
 ```
 
+### `isUUID(input)`
+
+Returns a Boolean indicating whether `input` is UUID or not.
+
+```typescript
+import { isUUID } from "js-simple-validate";
+
+console.log(isUUID("3522ac6c-aadd-4165-8e10-d384faa5e076")); // true
+console.log(isUUID("3522ac6c:aadd:4165:8e10:d384faa5e076")); // false
+console.log(isUUID("0929:f3ea:4df4:86b0:dedf")); // false
+```
+
 ## License
 
 MIT

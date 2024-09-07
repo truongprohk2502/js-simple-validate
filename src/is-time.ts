@@ -23,6 +23,7 @@ interface Options {
  * @returns {boolean} Returns true if the string is time, false otherwise.
  */
 const isTime = (input, options?: Options) => {
+  // Returns false input is not a string
   if (typeof input !== "string") return false;
 
   const formatsRegex = [];
