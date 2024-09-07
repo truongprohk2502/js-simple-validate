@@ -490,6 +490,19 @@ console.log(isMobilePhone("(555) 555-1234", "en-US")); // true
 console.log(isMobilePhone("1234-555-1234", ["vi-VN", "en-US"])); // false
 ```
 
+### `isPassport(input)`
+
+Returns a Boolean indicating whether `input` is valid passport number or not.
+
+- `options.locale`: is the country code of passport. Is one of `['JP', 'KR', 'US', ...]`. All supported locales are extracting at `PassportLocale` type.
+
+```typescript
+import { isPassport } from "js-simple-validate";
+
+console.log(isPassport("123456789", "US")); // true
+console.log(isPassport("AB1234567", "JP")); // true
+```
+
 ### `isMongoId(input, locale)`
 
 Returns a Boolean indicating whether `input` is mongo id or not.

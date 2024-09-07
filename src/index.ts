@@ -32,6 +32,7 @@ export * from "./is-octal";
 export * from "./is-uuid";
 export * from "./is-ulid";
 export * from "./is-rgb-color";
+export * from "./is-passport";
 export * from "./is-port";
 export * from "./is-postal-code";
 export * from "./is-semver";
