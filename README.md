@@ -392,7 +392,7 @@ console.log(isJWT("anh.yêu.em")); // false
 console.log(isJWT("abc.def.ghy.jwt")); // false
 ```
 
-### `isIP(input[, version)`
+### `isIP(input[, version])`
 
 Returns a Boolean indicating whether `input` is IP address or not.
 
@@ -406,6 +406,22 @@ console.log(isIP("192.168.1.12", "IPv6")); // false
 console.log(isIP("111:222:333:444:555:666:777:888")); // true
 console.log(isIP("12:23::", "IPv6")); // true
 console.log(isIP("1:2:3:4:5:6:192.168.1.12")); // true
+```
+
+### `isIPRange(input[, version])`
+
+Returns a Boolean indicating whether `input` is IP range or not.
+IP address range has an IP address and subnet mask separated by `/`.
+
+- `version`: specify IP version. Is one of `['IPv4', 'IPv6']`. If not set, it will check both v4 and v6 format.
+
+```typescript
+import { isIPRange } from "js-simple-validate";
+
+console.log(isIPRange("192.168.1.12/20")); // true
+console.log(isIPRange("192:168::/128", "IPv6")); // true
+console.log(isIPRange("192.168.1.12/-20")); // false
+console.log(isIPRange("12:23::/200", "IPv6")); // false
 ```
 
 ## License
