@@ -27,6 +27,7 @@ npm install js-simple-validate
 - [`isEthereumAddress`](#is-ethereum-address)
 - [`isPort`](#is-port)
 - [`isFQDN`](#is-fqdn)
+- [`isEmail`](#is-email)
 - [`isPostalCode`](#is-postal-code)
 - [`isMAC`](#is-mac)
 - [`isSemVer`](#is-sem-ver)
@@ -188,6 +189,20 @@ console.log(
 ); // true
 console.log(isFQDN("*.netlify.app", { allowWildcard: true })); // true
 console.log(isFQDN("www.g😃😃gle.com")); // false
+```
+
+### <a id="is-email" href="#is-email">`isEmail(input)`</a>
+
+Returns a Boolean indicating whether `input` is email or not.
+
+```typescript
+import { isEmail } from "js-simple-validate";
+
+console.log(isEmail("firstname.lastname@example.com")); // true
+console.log(isEmail("email@subdomain.example.com")); // true
+console.log(isEmail("email..email@example.com")); // false
+console.log(isEmail("email@-example.com")); // false
+console.log(isEmail("あいうえお@example.com")); // false
 ```
 
 ### <a id="is-postal-code" href="#is-postal-code">`isPostalCode(input[, locale])`</a>

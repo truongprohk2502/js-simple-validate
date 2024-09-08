@@ -8,6 +8,7 @@ export * from "./is-credit-card";
 export * from "./is-data-uri";
 export * from "./is-date";
 export * from "./is-ean";
+export * from "./is-email";
 export * from "./is-fqdn";
 export * from "./is-time";
 export * from "./is-decimal";
