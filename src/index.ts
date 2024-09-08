@@ -1,6 +1,8 @@
 export * from "./is-alphabet";
 export * from "./is-ascii";
+export * from "./is-crockford-base-32";
 export * from "./is-base-32";
+export * from "./is-base-58";
 export * from "./is-base-64";
 export * from "./is-bitcoin-address";
 export * from "./is-ethereum-address";
@@ -10,6 +12,7 @@ export * from "./is-date";
 export * from "./is-ean";
 export * from "./is-email";
 export * from "./is-fqdn";
+export * from "./is-magnet-uri";
 export * from "./is-time";
 export * from "./is-decimal";
 export * from "./is-full-width";

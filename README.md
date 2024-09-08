@@ -21,7 +21,9 @@ npm install js-simple-validate
 - [`isAlphabet`](#is-alphabet)
 - [`isAscii`](#is-ascii)
 - [`isJsonObject`](#is-json-object)
+- [`isCrockfordBase32`](#is-crockford-base-32)
 - [`isBase32`](#is-base-32)
+- [`isBase58`](#is-base-58)
 - [`isBase64`](#is-base-64)
 - [`isBitcoinAddress`](#is-bitcoin-address)
 - [`isEthereumAddress`](#is-ethereum-address)
@@ -51,6 +53,7 @@ npm install js-simple-validate
 - [`isJWT`](#is-jwt)
 - [`isIP`](#is-ip)
 - [`isIPRange`](#is-ip-range)
+- [`isMagnetURI`](#is-magnet-uri)
 - [`isLatLong`](#is-lat-long)
 - [`isMobilePhone`](#is-mobile-phone)
 - [`isPassport`](#is-passport)
@@ -101,6 +104,21 @@ console.log(isJsonObject("[{"x":1,"y":1}]")); // true
 console.log(isJsonObject("[1,2,3]")); // false
 ```
 
+### <a id="is-crockford-base-32" href="#is-crockford-base-32">`isCrockfordBase32(input)`</a>
+
+Returns a Boolean indicating whether `input` is Base32 string as Crockford algorithm or not.
+
+```typescript
+import { isCrockfordBase32 } from "js-simple-validate";
+
+console.log(
+  isCrockfordBase32(
+    "AHM6A83HENMP6TS0C9S6YXVE41K6YY10D9TPTW3K41QQCSBJ41T6GS90DHGQMY90CHQPEBG"
+  )
+); // true
+console.log(isCrockfordBase32("invalidbase32")); // false
+```
+
 ### <a id="is-base-32" href="#is-base-32">`isBase32(input)`</a>
 
 Returns a Boolean indicating whether `input` is Base32 string or not.
@@ -110,6 +128,17 @@ import { isBase32 } from "js-simple-validate";
 
 console.log(isBase32("JBSWY3DPEBLW64TMMQQQ====")); // true
 console.log(isBase32("invalid base32")); // false
+```
+
+### <a id="is-base-58" href="#is-base-58">`isBase58(input)`</a>
+
+Returns a Boolean indicating whether `input` is Base58 string or not.
+
+```typescript
+import { isBase58 } from "js-simple-validate";
+
+console.log(isBase58("L4baC6eDpmHZ5cmx2BMHZQPvwnokx9yPhE6jFGJBNHz4SU4ez9qH")); // true
+console.log(isBase58("invalidbase58")); // false
 ```
 
 ### <a id="is-base-64" href="#is-base-64">`isBase64(input[, options])`</a>
@@ -552,6 +581,21 @@ console.log(isIPRange("192.168.1.12/20")); // true
 console.log(isIPRange("192:168::/128", "IPv6")); // true
 console.log(isIPRange("192.168.1.12/-20")); // false
 console.log(isIPRange("12:23::/200", "IPv6")); // false
+```
+
+### <a id="is-magnet-uri" href="#is-magnet-uri">`isMagnetURI(input)`</a>
+
+Returns a Boolean indicating whether `input` is Magnet URI or not.
+
+```typescript
+import { isMagnetURI } from "js-simple-validate";
+
+console.log(
+  isMagnetURI(
+    "magnet:?xt=urn:btih:5dee65101db281ac9c46344cd6b175cdcad53426&dn=download"
+  )
+); // true
+console.log(isMagnetURI("magnet:?xt=urn:fake:5deecd6&dn=download")); // false
 ```
 
 ### <a id="is-lat-long" href="#is-lat-long">`isLatLong(input[, options])`</a>
