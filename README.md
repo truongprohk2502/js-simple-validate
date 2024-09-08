@@ -46,6 +46,7 @@ npm install js-simple-validate
 - [`isHSL`](#is-hsl)
 - [`isRgbColor`](#is-rgb-color)
 - [`isLuhnNumber`](#is-luhn-number)
+- [`isCreditCard`](#is-credit-card)
 - [`isJWT`](#is-jwt)
 - [`isIP`](#is-ip)
 - [`isIPRange`](#is-ip-range)
@@ -478,6 +479,22 @@ console.log(isLuhnNumber("12345678")); // false
 console.log(isLuhnNumber("dummy-text")); // false
 ```
 
+### <a id="is-credit-card" href="#is-credit-card">`isCreditCard(input[, provider])`</a>
+
+Returns a Boolean indicating whether `input` is valid Credit card number or not.
+
+- `provider`: is `provider` name of credit card. Is one of `['amex' | 'dinersclub' | 'discover' | 'jcb' | 'mastercard' | 'unionpay' | 'visa']`. All supported providers are extracted at `CreditCardType` type.
+
+```typescript
+import { isCreditCard } from "js-simple-validate";
+
+console.log(isCreditCard("6212345678900000003")); // true
+console.log(isCreditCard("378282246310005", "amex")); // true
+console.log(isCreditCard(isCreditCard("2222420000001113", "mastercard"))); // true
+console.log(isCreditCard("12345678")); // false
+console.log(isCreditCard("dummy-text")); // false
+```
+
 ### <a id="is-jwt" href="#is-jwt">`isJWT(input)`</a>
 
 Returns a Boolean indicating whether `input` is JWT token or not.
@@ -548,7 +565,7 @@ console.log(
 
 Returns a Boolean indicating whether `input` is mobile phone number or not.
 
-- `locale`: is `Locale` or array of `Locale`. Is one of `['en-US', 'vi-VN', ...]`. All supported locales are extracting at `MobilePhoneLocale` type.
+- `locale`: is `Locale` or array of `Locale`. Is one of `['en-US', 'vi-VN', ...]`. All supported locales are extracted at `MobilePhoneLocale` type.
 
 ```typescript
 import { isMobilePhone } from "js-simple-validate";
