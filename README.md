@@ -29,6 +29,7 @@ npm install js-simple-validate
 - [`isEthereumAddress`](#is-ethereum-address)
 - [`isPort`](#is-port)
 - [`isFQDN`](#is-fqdn)
+- [`isURL`](#is-url)
 - [`isEmail`](#is-email)
 - [`isMailtoURI`](#is-mailto-uri)
 - [`isPostalCode`](#is-postal-code)
@@ -219,6 +220,35 @@ console.log(
 ); // true
 console.log(isFQDN("*.netlify.app", { allowWildcard: true })); // true
 console.log(isFQDN("www.g😃😃gle.com")); // false
+```
+
+### <a id="is-url" href="#is-url">`isURL(input[, options])`</a>
+
+Returns a Boolean indicating whether `input` is URL or not.
+
+- `options.requireProtocol`: is a `boolean` and defaults to `false`. If set to `true`, it will require protocol of URL.
+- `options.allowFragments`: is a `boolean` and defaults to `false`. If set to `true`, the URL can contain fragment.
+- `options.allowQueries`: is a `boolean` and defaults to `false`. If set to `true`, the URL can contain query components.
+- `options.allowRelativeProtocol`: is a `boolean` and defaults to `false`. If set to `true`, the URL can start with relative protocol.
+
+```typescript
+import { isURL } from "js-simple-validate";
+
+console.log(isURL("https://www.google.com:3000")); // true
+console.log(isURL("http://[1080:0:0:0:8:800:200C:417A]:8000")); // true
+console.log(isURL("https://username:password@github.com")); // true
+console.log(isURL("//www.google.com", { allowRelativeProtocol: true })); // true
+console.log(
+  isURL("https://www.google.com#basic", {
+    allowFragments: true,
+  })
+); // true
+console.log(
+  isURL("https://www.google.com?title=title", {
+    allowQueries: true,
+  })
+); // true
+console.log(isURL("www.google.com", { requireProtocol: true })); // false
 ```
 
 ### <a id="is-email" href="#is-email">`isEmail(input)`</a>

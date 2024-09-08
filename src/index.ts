@@ -13,6 +13,7 @@ export * from "./is-ean";
 export * from "./is-email";
 export * from "./is-mailto-uri";
 export * from "./is-fqdn";
+export * from "./is-url";
 export * from "./is-magnet-uri";
 export * from "./is-time";
 export * from "./is-decimal";
