@@ -30,6 +30,7 @@ npm install js-simple-validate
 - [`isPort`](#is-port)
 - [`isFQDN`](#is-fqdn)
 - [`isEmail`](#is-email)
+- [`isMailtoURI`](#is-mailto-uri)
 - [`isPostalCode`](#is-postal-code)
 - [`isMAC`](#is-mac)
 - [`isSemVer`](#is-sem-ver)
@@ -232,6 +233,25 @@ console.log(isEmail("email@subdomain.example.com")); // true
 console.log(isEmail("email..email@example.com")); // false
 console.log(isEmail("email@-example.com")); // false
 console.log(isEmail("あいうえお@example.com")); // false
+```
+
+### <a id="is-mailto-uri" href="#is-mailto-uri">`isMailtoURI(input)`</a>
+
+Returns a Boolean indicating whether `input` is Mailto URI or not.
+
+```typescript
+import { isMailtoURI } from "js-simple-validate";
+
+console.log(
+  isMailtoURI(
+    "mailto:foo@email.com?subject=my-subject&body=my-body&cc=bar@email.com"
+  )
+); // true
+console.log(
+  isMailtoURI(
+    "mailto:-invalid-email-@email.com?title=my-subject&body=my-body&cc=bar@email.com"
+  )
+); // false
 ```
 
 ### <a id="is-postal-code" href="#is-postal-code">`isPostalCode(input[, locale])`</a>
