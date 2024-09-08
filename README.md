@@ -26,6 +26,7 @@ npm install js-simple-validate
 - [`isBitcoinAddress`](#is-bitcoin-address)
 - [`isEthereumAddress`](#is-ethereum-address)
 - [`isPort`](#is-port)
+- [`isFQDN`](#is-fqdn)
 - [`isPostalCode`](#is-postal-code)
 - [`isMAC`](#is-mac)
 - [`isSemVer`](#is-sem-ver)
@@ -160,6 +161,32 @@ console.log(isPort("3000")); // true
 console.log(isPort("100000")); // false
 console.log(isPort("0080")); // false
 console.log(isPort("-3000")); // false
+```
+
+### <a id="is-fqdn" href="#is-fqdn">`isFQDN(input[, options])`</a>
+
+Returns a Boolean indicating whether `input` is `Fully qualified domain name (FQDN)` or not.
+
+- `options.requireTopLevelDomain`: is a `boolean` and defaults to `false`. If set to `true`, it will require `Top level domain (TLD)` part at the end.
+- `options.allowUnderscores`: is a `boolean` and defaults to `false`. If set to `true`, the FQDN can contain underscore character.
+- `options.allowTrailingDot`: is a `boolean` and defaults to `false`. If set to `true`, the FQDN can have dot character at the end.
+- `options.allowWildcard`: is a `boolean` and defaults to `false`. If set to `true`, the FQDN can have wildcard character (\*).
+- `options.allowNumericTLD`: is a `boolean` and defaults to `false`. If set to `true`, the `Top level domain (TLD)` can contains digits.
+- `options.ignoreMaxLength`: is a `boolean` and defaults to `false`. If set to `true`, each part of FQDN can have characters length greater than 63.
+
+```typescript
+import { isFQDN } from "js-simple-validate";
+
+console.log(isFQDN("www.google.com")); // true
+console.log(isFQDN("www.google_meet.com", { allowUnderscores: true })); // true
+console.log(
+  isFQDN("www.google.com123", {
+    requireTopLevelDomain: true,
+    allowNumericTLD: true,
+  })
+); // true
+console.log(isFQDN("*.netlify.app", { allowWildcard: true })); // true
+console.log(isFQDN("www.g😃😃gle.com")); // false
 ```
 
 ### <a id="is-postal-code" href="#is-postal-code">`isPostalCode(input[, locale])`</a>
