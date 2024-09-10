@@ -30,6 +30,7 @@ npm install js-simple-validate
 - [`isPort`](#is-port)
 - [`isFQDN`](#is-fqdn)
 - [`isURL`](#is-url)
+- [`isGitURL`](#is-git-url)
 - [`isEmail`](#is-email)
 - [`isMailtoURI`](#is-mailto-uri)
 - [`isPostalCode`](#is-postal-code)
@@ -249,6 +250,20 @@ console.log(
   })
 ); // true
 console.log(isURL("www.google.com", { requireProtocol: true })); // false
+```
+
+### <a id="is-git-url" href="#is-git-url">`isGitURL(input)`</a>
+
+Returns a Boolean indicating whether `input` is Git URL or not.
+
+```typescript
+import { isGitURL } from "js-simple-validate";
+
+console.log(isGitURL("git://github.com/repo/is-git-url.git")); // true
+console.log(isGitURL("ssh://login@server.com:12345/repository.git")); // true
+console.log(isGitURL("https://github.com/repo/my-app.git")); // true
+console.log(isGitURL("github.com/repo/my-app.git")); // false
+console.log(isGitURL("https://github.com/repo/my-app")); // false
 ```
 
 ### <a id="is-email" href="#is-email">`isEmail(input)`</a>
