@@ -69,6 +69,7 @@ npm install js-simple-validate
 - [`isBase64`](#is-base-64)
 - [`isBitcoinAddress`](#is-bitcoin-address)
 - [`isEthereumAddress`](#is-ethereum-address)
+- [`isNetworkError`](#is-network-error)
 
 ## API
 
@@ -845,6 +846,26 @@ import { isEthereumAddress } from "js-simple-validate";
 console.log(isEthereumAddress("0x71C7656EC7ab88b098defB751B7401B5f6d8976F")); // true
 console.log(isEthereumAddress("71C7656EC7ab88b098defB751B7401B5f6d8976F")); // false
 console.log(isEthereumAddress("0x12345")); // false
+```
+
+### <a id="is-network-error" href="#is-network-error">`isNetworkError(input)`</a>
+
+Returns a Boolean indicating whether `input` is Network Error or not.
+
+```typescript
+import { isNetworkError } from "js-simple-validate";
+
+try {
+  await fetch("https://oyzaiz.abc/fake");
+} catch (err) {
+  console.log(isNetworkError(err)); // true
+}
+
+try {
+  JSON.parse("invalid");
+} catch (err) {
+  console.log(isNetworkError(err)); // false
+}
 ```
 
 ## License

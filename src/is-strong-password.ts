@@ -42,6 +42,11 @@ const analyzePassword = (input: string) => {
  * Validates if the given string is strong password or not.
  *
  * @param {any} input The string to validate.
+ * @param {number} options.minLength Minimum length.
+ * @param {number} options.minLowercase Minimum lowercase characters.
+ * @param {number} options.minUppercase Minimum uppercase characters.
+ * @param {number} options.minNumbers Minimum number characters.
+ * @param {number} options.minSymbols Minimum symbol characters.
  * @returns {boolean} Returns true if the string is strong password, false otherwise.
  */
 const isStrongPassword = (input: any, options: Options) => {
