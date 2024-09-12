@@ -95,6 +95,23 @@ console.log(isAscii("русский")); // false
 console.log(isAscii("한국어")); // false
 ```
 
+### <a id="is-file-name" href="#is-file-name">`isFileName(input[, options])`</a>
+
+Returns a Boolean indicating whether `input` is valid file name or not.
+
+- `options.requireExtension`: is a `boolean` and defaults to `false`. If set to `true`, file name must contain file extension. If set to `false`, it will check `input` as just file name.
+
+```typescript
+import { isFileName } from "js-simple-validate";
+
+console.log(isFileName("foo bar")); // true
+console.log(isFileName("foo_bar")); // true
+console.log(isFileName("foo/bar")); // false
+console.log(isFileName("con")); // false, not allowed file name
+console.log(isFileName("foobar", { requireExtension: true })); // false, missing extension
+console.log(isFileName("foobar.spec.ts2", { requireExtension: true })); // false, extension contains number
+```
+
 ### <a id="is-json-object" href="#is-json-object">`isJsonObject(input)`</a>
 
 Returns a Boolean indicating whether `input` is a valid JSON object or not.

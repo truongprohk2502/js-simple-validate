@@ -1,7 +1,7 @@
 {
   "name": "js-simple-validate",
   "private": false,
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "Simple javascript validate features",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

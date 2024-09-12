@@ -11,6 +11,7 @@ export * from "./is-data-uri";
 export * from "./is-date";
 export * from "./is-ean";
 export * from "./is-email";
+export * from "./is-file-name";
 export * from "./is-mailto-uri";
 export * from "./is-fqdn";
 export * from "./is-url";
