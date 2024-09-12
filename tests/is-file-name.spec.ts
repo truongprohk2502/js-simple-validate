@@ -6,7 +6,11 @@ describe("isFileName", () => {
     expect(isFileName("foo-bar")).toBe(true);
     expect(isFileName("foobar")).toBe(true);
     expect(isFileName("foobar.csv")).toBe(true);
+    expect(isFileName("foobar.csv")).toBe(true);
     expect(isFileName("foobar.spec.ts2")).toBe(true);
+    expect(
+      isFileName("foobar.spec.sublime-build", { requireExtension: true })
+    ).toBe(true);
   });
 
   it("should not be file name", () => {
@@ -17,5 +21,8 @@ describe("isFileName", () => {
     expect(isFileName("foobar.spec.ts2", { requireExtension: true })).toBe(
       false
     );
+    expect(
+      isFileName("foobar.spec.sublime--build", { requireExtension: true })
+    ).toBe(false);
   });
 });

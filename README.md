@@ -20,6 +20,8 @@ npm install js-simple-validate
 
 - [`isAlphabet`](#is-alphabet)
 - [`isAscii`](#is-ascii)
+- [`isFileName`](#is-file-name)
+- [`isTextFile`](#is-text-file)
 - [`isJsonObject`](#is-json-object)
 - [`isCrockfordBase32`](#is-crockford-base-32)
 - [`isBase32`](#is-base-32)
@@ -110,6 +112,18 @@ console.log(isFileName("foo/bar")); // false
 console.log(isFileName("con")); // false, not allowed file name
 console.log(isFileName("foobar", { requireExtension: true })); // false, missing extension
 console.log(isFileName("foobar.spec.ts2", { requireExtension: true })); // false, extension contains number
+```
+
+### <a id="is-text-file" href="#is-text-file">`isTextFile(input)`</a>
+
+Returns a Boolean indicating whether `input` is text file or not.
+
+```typescript
+import { isTextFile } from "js-simple-validate";
+
+console.log(isTextFile("foo bar.txt")); // true
+console.log(isTextFile("foo_bar.spec.ts")); // true
+console.log(isTextFile("foo_bar.exe")); // false
 ```
 
 ### <a id="is-json-object" href="#is-json-object">`isJsonObject(input)`</a>

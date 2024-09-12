@@ -1,6 +1,6 @@
 const filenameReservedRegex = /[<>:"/\\|?*\u0000-\u001F]/g;
 const windowsReservedNameRegex = /^(con|prn|aux|nul|com\d|lpt\d)$/i;
-const fileExtensionRegex = /^[a-zA-Z]{1,255}$/;
+const fileExtensionRegex = /^[a-zA-Z]+(-[a-zA-Z]+)*$/;
 
 interface Options {
   requireExtension: boolean;
@@ -24,7 +24,6 @@ const isFileName = (input: any, options?: Options) => {
     // Not contain extension
     if (split.length < 2) return false;
     const ext = split.pop();
-    console.log(ext);
 
     // Test valid extension
     if (!fileExtensionRegex.test(ext)) return false;
