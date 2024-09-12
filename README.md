@@ -22,13 +22,8 @@ npm install js-simple-validate
 - [`isAscii`](#is-ascii)
 - [`isFileName`](#is-file-name)
 - [`isTextFile`](#is-text-file)
+- [`isStrongPassword`](#is-strong-password)
 - [`isJsonObject`](#is-json-object)
-- [`isCrockfordBase32`](#is-crockford-base-32)
-- [`isBase32`](#is-base-32)
-- [`isBase58`](#is-base-58)
-- [`isBase64`](#is-base-64)
-- [`isBitcoinAddress`](#is-bitcoin-address)
-- [`isEthereumAddress`](#is-ethereum-address)
 - [`isPort`](#is-port)
 - [`isFQDN`](#is-fqdn)
 - [`isURL`](#is-url)
@@ -68,6 +63,12 @@ npm install js-simple-validate
 - [`isULID`](#is-ulid)
 - [`isIMEI`](#is-imei)
 - [`isEAN`](#is-ean)
+- [`isCrockfordBase32`](#is-crockford-base-32)
+- [`isBase32`](#is-base-32)
+- [`isBase58`](#is-base-58)
+- [`isBase64`](#is-base-64)
+- [`isBitcoinAddress`](#is-bitcoin-address)
+- [`isEthereumAddress`](#is-ethereum-address)
 
 ## API
 
@@ -126,6 +127,31 @@ console.log(isTextFile("foo_bar.spec.ts")); // true
 console.log(isTextFile("foo_bar.exe")); // false
 ```
 
+### <a id="is-strong-password" href="#is-strong-password">`isStrongPassword(input, options)`</a>
+
+Returns a Boolean indicating whether `input` is strong password or not.
+
+- `options.minLength`: is a `number` and required. Determine the minimum length of password.
+- `options.minLowercase`: is a `number` and default to `0`. Determine the minimum lowercase characters of password.
+- `options.minUppercase`: is a `number` and default to `0`. Determine the minimum uppercase characters of password.
+- `options.minNumbers`: is a `number` and default to `0`. Determine the minimum number characters of password.
+- `options.minSymbols`: is a `number` and default to `0`. Determine the minimum symbol characters of password.
+
+```typescript
+import { isStrongPassword } from "js-simple-validate";
+
+console.log(
+  isStrongPassword("Admin@123", {
+    minLength: 8,
+    minLowercase: 1,
+    minUppercase: 1,
+    minNumbers: 1,
+    minSymbols: 1,
+  })
+); // true
+console.log(isStrongPassword("abc123", { minLength: 8 })); // false
+```
+
 ### <a id="is-json-object" href="#is-json-object">`isJsonObject(input)`</a>
 
 Returns a Boolean indicating whether `input` is a valid JSON object or not.
@@ -136,81 +162,6 @@ import { isJsonObject } from "js-simple-validate";
 console.log(isJsonObject("{"key":1}")); // true
 console.log(isJsonObject("[{"x":1,"y":1}]")); // true
 console.log(isJsonObject("[1,2,3]")); // false
-```
-
-### <a id="is-crockford-base-32" href="#is-crockford-base-32">`isCrockfordBase32(input)`</a>
-
-Returns a Boolean indicating whether `input` is Base32 string as Crockford algorithm or not.
-
-```typescript
-import { isCrockfordBase32 } from "js-simple-validate";
-
-console.log(
-  isCrockfordBase32(
-    "AHM6A83HENMP6TS0C9S6YXVE41K6YY10D9TPTW3K41QQCSBJ41T6GS90DHGQMY90CHQPEBG"
-  )
-); // true
-console.log(isCrockfordBase32("invalidbase32")); // false
-```
-
-### <a id="is-base-32" href="#is-base-32">`isBase32(input)`</a>
-
-Returns a Boolean indicating whether `input` is Base32 string or not.
-
-```typescript
-import { isBase32 } from "js-simple-validate";
-
-console.log(isBase32("JBSWY3DPEBLW64TMMQQQ====")); // true
-console.log(isBase32("invalid base32")); // false
-```
-
-### <a id="is-base-58" href="#is-base-58">`isBase58(input)`</a>
-
-Returns a Boolean indicating whether `input` is Base58 string or not.
-
-```typescript
-import { isBase58 } from "js-simple-validate";
-
-console.log(isBase58("L4baC6eDpmHZ5cmx2BMHZQPvwnokx9yPhE6jFGJBNHz4SU4ez9qH")); // true
-console.log(isBase58("invalidbase58")); // false
-```
-
-### <a id="is-base-64" href="#is-base-64">`isBase64(input[, options])`</a>
-
-Returns a Boolean indicating whether `input` is Base64 string or not.
-
-- `options.isUrlSafe`: check with Url Safe Base64 format
-
-```typescript
-import { isBase64 } from "js-simple-validate";
-
-console.log(isBase64("SGVsbG8sIFdvcmxkIQ==")); // true
-console.log(isBase64("SGVsbG8sIFdvcmxkIQ", { isUrlSafe: true })); // true
-console.log(isBase64("invalid base64")); // false
-console.log(isBase64("SGVsbG8sIFdvcmxkIQ==", { isUrlSafe: true })); // false
-```
-
-### <a id="is-bitcoin-address" href="#is-bitcoin-address">`isBitcoinAddress(input)`</a>
-
-Returns a Boolean indicating whether `input` is Bitcoin address or not.
-
-```typescript
-import { isBitcoinAddress } from "js-simple-validate";
-
-console.log(isBitcoinAddress("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa")); // true
-console.log(isBitcoinAddress("invalid BTC")); // false
-```
-
-### <a id="is-ethereum-address" href="#is-ethereum-address">`isEthereumAddress(input)`</a>
-
-Returns a Boolean indicating whether `input` is Ethereum address or not.
-
-```typescript
-import { isEthereumAddress } from "js-simple-validate";
-
-console.log(isEthereumAddress("0x71C7656EC7ab88b098defB751B7401B5f6d8976F")); // true
-console.log(isEthereumAddress("71C7656EC7ab88b098defB751B7401B5f6d8976F")); // false
-console.log(isEthereumAddress("0x12345")); // false
 ```
 
 ### <a id="is-port" href="#is-port">`isPort(input)`</a>
@@ -819,6 +770,81 @@ import { isEAN } from "js-simple-validate";
 console.log(isEAN("50123452")); // true
 console.log(isEAN("5012345678900")); // true
 console.log(isEAN("0123456789")); // false
+```
+
+### <a id="is-crockford-base-32" href="#is-crockford-base-32">`isCrockfordBase32(input)`</a>
+
+Returns a Boolean indicating whether `input` is Base32 string as Crockford algorithm or not.
+
+```typescript
+import { isCrockfordBase32 } from "js-simple-validate";
+
+console.log(
+  isCrockfordBase32(
+    "AHM6A83HENMP6TS0C9S6YXVE41K6YY10D9TPTW3K41QQCSBJ41T6GS90DHGQMY90CHQPEBG"
+  )
+); // true
+console.log(isCrockfordBase32("invalidbase32")); // false
+```
+
+### <a id="is-base-32" href="#is-base-32">`isBase32(input)`</a>
+
+Returns a Boolean indicating whether `input` is Base32 string or not.
+
+```typescript
+import { isBase32 } from "js-simple-validate";
+
+console.log(isBase32("JBSWY3DPEBLW64TMMQQQ====")); // true
+console.log(isBase32("invalid base32")); // false
+```
+
+### <a id="is-base-58" href="#is-base-58">`isBase58(input)`</a>
+
+Returns a Boolean indicating whether `input` is Base58 string or not.
+
+```typescript
+import { isBase58 } from "js-simple-validate";
+
+console.log(isBase58("L4baC6eDpmHZ5cmx2BMHZQPvwnokx9yPhE6jFGJBNHz4SU4ez9qH")); // true
+console.log(isBase58("invalidbase58")); // false
+```
+
+### <a id="is-base-64" href="#is-base-64">`isBase64(input[, options])`</a>
+
+Returns a Boolean indicating whether `input` is Base64 string or not.
+
+- `options.isUrlSafe`: check with Url Safe Base64 format
+
+```typescript
+import { isBase64 } from "js-simple-validate";
+
+console.log(isBase64("SGVsbG8sIFdvcmxkIQ==")); // true
+console.log(isBase64("SGVsbG8sIFdvcmxkIQ", { isUrlSafe: true })); // true
+console.log(isBase64("invalid base64")); // false
+console.log(isBase64("SGVsbG8sIFdvcmxkIQ==", { isUrlSafe: true })); // false
+```
+
+### <a id="is-bitcoin-address" href="#is-bitcoin-address">`isBitcoinAddress(input)`</a>
+
+Returns a Boolean indicating whether `input` is Bitcoin address or not.
+
+```typescript
+import { isBitcoinAddress } from "js-simple-validate";
+
+console.log(isBitcoinAddress("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa")); // true
+console.log(isBitcoinAddress("invalid BTC")); // false
+```
+
+### <a id="is-ethereum-address" href="#is-ethereum-address">`isEthereumAddress(input)`</a>
+
+Returns a Boolean indicating whether `input` is Ethereum address or not.
+
+```typescript
+import { isEthereumAddress } from "js-simple-validate";
+
+console.log(isEthereumAddress("0x71C7656EC7ab88b098defB751B7401B5f6d8976F")); // true
+console.log(isEthereumAddress("71C7656EC7ab88b098defB751B7401B5f6d8976F")); // false
+console.log(isEthereumAddress("0x12345")); // false
 ```
 
 ## License

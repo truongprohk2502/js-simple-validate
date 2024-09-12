@@ -48,3 +48,4 @@ export * from "./is-port";
 export * from "./is-postal-code";
 export * from "./is-semver";
 export * from "./is-surrogate-pair";
+export * from "./is-strong-password";
